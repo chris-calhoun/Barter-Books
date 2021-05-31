@@ -1,4 +1,20 @@
-# Getting Started with Create React App
+# Barter Books
+
+## Features
+
+## Technologies
+
+## ERD
+
+I used Lucidchart to create my ERD. See [here](https://lucid.app/lucidchart/invitations/accept/inv_7ea647a7-2ce3-49a6-93ca-5791b19b4574?viewport_loc=-142%2C113%2C2455%2C978%2C0_0)
+
+## Wireframe
+
+I used Figma to create a wireframe for planning. See [here](https://www.figma.com/file/RZ5hPev5koEGT3cSD4yrrj/Barter-Books?node-id=0%3A1)!
+
+***
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
