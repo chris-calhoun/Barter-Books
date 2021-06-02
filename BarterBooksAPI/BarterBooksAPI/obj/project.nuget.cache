@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "qtS+UPMx0V0vQNCpzpzpG4eb2RgZ0KjSMDeJ1dabQ+FsvvuIs4DDfelmspXJPK8EE6GMGe/eni/hLJmSTryx+w==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\ctcal\\workspace\\back-end-2021\\backend-capstone\\BarterBooksAPI\\BarterBooksAPI\\BarterBooksAPI.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ctcal\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.13\\microsoft.netcore.app.host.win-x64.3.1.13.nupkg.sha512"
+  ],
+  "logs": []
+}
