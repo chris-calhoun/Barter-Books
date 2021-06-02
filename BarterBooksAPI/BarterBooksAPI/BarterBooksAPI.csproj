@@ -4,6 +4,7 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+<<<<<<< HEAD
   <ItemGroup>
     <Folder Include="Controllers\" />
     <Folder Include="Models\" />
@@ -17,5 +18,7 @@
     <PackageReference Include="Microsoft.Data.SqlClient" Version="2.1.3" />
   </ItemGroup>
 
+=======
+>>>>>>> 93cf9100b2aba0c1b25a68c86bf6404239cec905
 
 </Project>
