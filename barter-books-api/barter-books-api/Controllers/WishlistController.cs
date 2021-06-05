@@ -31,6 +31,12 @@ namespace barter_books_api.Controllers
             return Ok(wishlist);
         }
 
+        [HttpPost]
+        public IActionResult AddWishlist(Wishlist wishlist)
+        {
+            _repo.AddWishlist(wishlist);
+            return Created($"api/Wishlist/{wishlist.Id}", wishlist);
+        }
 
     }
 }
