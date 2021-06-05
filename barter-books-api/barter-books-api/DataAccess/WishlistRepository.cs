@@ -20,5 +20,15 @@ namespace barter_books_api.DataAccess
             var wishlist = connection.QueryFirstOrDefault<Wishlist>(sql, new { UserId = userId });
             return wishlist;
         }
+
+        public void AddWishlist(Wishlist wishlist)
+        {
+            using var connection = new SqlConnection(ConnectionString);
+            var sql = @"INSERT INTO [dbo].[Wishlist]([UserId],[BookId])
+                        OUTPUT inserted.Id
+                        VALUES(@UserId, @BookId)";
+            var id = connection.ExecuteScalar<int>(sql, wishlist);
+            wishlist.Id = id;
+        }
     }
 }
