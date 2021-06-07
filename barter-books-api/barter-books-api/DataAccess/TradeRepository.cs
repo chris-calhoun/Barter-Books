@@ -49,7 +49,7 @@ namespace barter_books_api.DataAccess
             trade.Id = id;
         }
 
-        public void CancelTrade(string trade_Id)
+        public void CancelTrade(int trade_Id)
         {
             using var connection = new SqlConnection(ConnectionString);
             var sql = @"DELETE FROM Trade
