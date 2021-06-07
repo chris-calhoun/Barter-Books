@@ -9,6 +9,6 @@ namespace barter_books_api.Models
     {
         public int Id { get; set; }
         public string UserId { get; set; }
-        public string BookId { get; set; }
+        public int BookId { get; set; }
     }
 }
