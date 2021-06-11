@@ -9,11 +9,19 @@ import UserTradesView from '../views/UserTradesView';
 export default function Routes() {
   return (
     <Switch>
-      <Route exact path='/' component={() => <HomeView/>} />
-      <Route exact path='/' component={() => <AboutView/>} />
-      <Route exact path='/' component={() => <SearchResultsView/>} />
-      <Route exact path='/' component={() => <UserBooksView/>} />
-      <Route exact path='/' component={() => <UserTradesView/>} />
+      <Route exact path='/' component={() => <HomeView />} />
+      <Route exact path='/about' component={() => <AboutView />} />
+      <Route
+        exact
+        path='/search-results'
+        component={() => <SearchResultsView />}
+      />
+      <Route exact path='/user-books' component={() => <UserBooksView />} />
+      <Route
+        exact
+        path='/user-trades-view'
+        component={() => <UserTradesView />}
+      />
     </Switch>
   );
 }
