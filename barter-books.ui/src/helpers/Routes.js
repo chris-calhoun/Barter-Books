@@ -19,7 +19,7 @@ export default function Routes() {
       <Route exact path='/user-books' component={() => <UserBooksView />} />
       <Route
         exact
-        path='/user-trades-view'
+        path='/user-trades'
         component={() => <UserTradesView />}
       />
     </Switch>
