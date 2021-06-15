@@ -4,7 +4,7 @@
 package-lock.json
 dist/
 .firebase/
-
+config.json
 
 # dependencies
 /node_modules
