@@ -25,6 +25,7 @@ const loginClickEvent = (e) => {
         FirstName: user.given_name,
         LastName: user.family_name,
         Email: user.email,
+        imageUrl: cred.user.photoURL,
       };
       axios.post(`${userDataUrl}`, userObj);
     }
