@@ -7,8 +7,10 @@ import {
   Nav,
   NavItem,
 } from 'reactstrap';
+import Auth from '../Auth';
 
-export default function MyNavbar() {
+export default function MyNavbar(props) {
+  const { user } = props;
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
 
@@ -26,6 +28,7 @@ export default function MyNavbar() {
               <Link className="nav-link" to='/about'>About</Link>
             </NavItem>
           </Nav>
+          <Auth user={user}/>
         </Collapse>
       </Navbar>
     </div>
