@@ -5,6 +5,7 @@ import {
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
+  Button,
 } from 'reactstrap';
 import AuthData from '../../helpers/data/authData';
 
@@ -14,7 +15,7 @@ export default class Auth extends Component {
     return (
       <>
       {/* if not logged in, show login button */}
-        { !user ? <button className='nav-link btn btn-primary' onClick={(e) => AuthData.loginClickEvent(e)}>Login</button>
+        { !user ? <Button color='primary' onClick={(e) => AuthData.loginClickEvent(e)}>Login</Button>
         // else show user image and dropdown caret with logout button and name
           : <>
               <img className="userInfo" src={user?.photoURL} alt={user?.displayName} />
@@ -26,12 +27,7 @@ export default class Auth extends Component {
               {user?.displayName}
               </DropdownItem>
               <DropdownItem>
-                <div
-                  className='nav-link btn btn-danger'
-                  onClick={(e) => AuthData.logoutClickEvent(e)}
-                >
-                  Logout
-                </div>
+                <Button color='danger' onClick={(e) => AuthData.logoutClickEvent(e)}>Logout</Button>
               </DropdownItem>
             </DropdownMenu>
           </UncontrolledDropdown>
