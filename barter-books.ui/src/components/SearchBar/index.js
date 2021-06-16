@@ -4,7 +4,6 @@ import {
   Input,
 } from 'reactstrap';
 import { withRouter } from 'react-router-dom';
-// import BookData from '../../helpers/data/bookData';
 
 class SearchBar extends Component {
   state = {
@@ -22,21 +21,10 @@ class SearchBar extends Component {
     e.preventDefault();
 
     this.props.history.push(`/search-results/${this.state.searchText}`);
-    // BookData.getSearchedBooks(this.state.searchText).then((response) => {
-    //   this.setState({
-    //     books: response,
-    //     searchText: '',
-    //   });
-    // });
   }
 
   render() {
     const { searchText } = this.state;
-
-    // const renderBooks = () => (
-    //   books.map((book) => <>{book.volumeInfo.title}
-    //   </>)
-    // );
 
     return (
       <>
@@ -50,7 +38,6 @@ class SearchBar extends Component {
               onChange={this.handleChange}
             />
         </Form>
-        {/* {books !== [] && <div className='d-flex flex-wrap container'>{renderBooks()}</div>} */}
       </>
     );
   }

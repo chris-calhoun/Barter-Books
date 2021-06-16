@@ -29,14 +29,15 @@ export default class SearchResultsView extends Component {
   }
 
   render() {
-    const { books } = this.state;
+    const { books, searchText } = this.state;
 
     const renderBooks = () => (
       books.map((book) => <p key={book.id}>{book.volumeInfo.title}</p>)
     );
     return (
       <div>
-        <h1>Search Results</h1>
+        <h1>Search results for</h1>
+        <h3>{searchText}</h3>
         {books !== [] && <div className='d-flex flex-wrap container'>{renderBooks()}</div>}
       </div>
     );
