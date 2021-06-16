@@ -8,6 +8,7 @@ import {
   NavItem,
 } from 'reactstrap';
 import Auth from '../Auth';
+import SearchBar from '../SearchBar';
 
 export default function MyNavbar(props) {
   const { user } = props;
@@ -16,19 +17,30 @@ export default function MyNavbar(props) {
 
   return (
     <div>
-      <Navbar color="light" light expand="md" className='justify-content-between'>
-        <Link className="navbar-brand" to='/'>Barter Books</Link>
+      <Navbar
+        color='light'
+        light
+        expand='md'
+        className='justify-content-between'>
+        <Link className='navbar-brand' to='/'>
+          Barter Books
+        </Link>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
-          <Nav className='mr-auto' navbar>
+          <Nav navbar>
             <NavItem>
-              <Link className="nav-link" to='/'>Home</Link>
+              <Link className="nav-link" to='/'>
+                Home
+              </Link>
             </NavItem>
             <NavItem>
-              <Link className="nav-link" to='/about'>About</Link>
+              <Link className="nav-link" to='/about'>
+                About
+              </Link>
             </NavItem>
           </Nav>
-          <Auth user={user}/>
+          <SearchBar />
+          <Auth user={user} />
         </Collapse>
       </Navbar>
     </div>
