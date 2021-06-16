@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import BookData from '../helpers/data/bookData';
+import BookSearchCard from '../components/Cards/Books/bookSearchCard';
 
 export default class SearchResultsView extends Component {
   state = {
@@ -32,7 +33,7 @@ export default class SearchResultsView extends Component {
     const { books, searchText } = this.state;
 
     const renderBooks = () => (
-      books.map((book) => <p key={book.id}>{book.volumeInfo.title}</p>)
+      books.map((book) => <BookSearchCard key={book.id} bookData={book} />)
     );
     return (
       <div>
