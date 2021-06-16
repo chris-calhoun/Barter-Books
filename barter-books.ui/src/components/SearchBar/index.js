@@ -3,9 +3,10 @@ import {
   Form,
   Input,
 } from 'reactstrap';
-import BookData from '../../helpers/data/bookData';
+import { withRouter } from 'react-router-dom';
+// import BookData from '../../helpers/data/bookData';
 
-export default class index extends Component {
+class SearchBar extends Component {
   state = {
     books: [],
     searchText: '',
@@ -20,21 +21,22 @@ export default class index extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
 
-    BookData.getSearchedBooks(this.state.searchText).then((response) => {
-      this.setState({
-        books: response,
-        searchText: '',
-      });
-    });
+    this.props.history.push(`/search-results/${this.state.searchText}`);
+    // BookData.getSearchedBooks(this.state.searchText).then((response) => {
+    //   this.setState({
+    //     books: response,
+    //     searchText: '',
+    //   });
+    // });
   }
 
   render() {
-    const { books, searchText } = this.state;
+    const { searchText } = this.state;
 
-    const renderBooks = () => (
-      books.map((book) => <>{book.volumeInfo.title}
-      </>)
-    );
+    // const renderBooks = () => (
+    //   books.map((book) => <>{book.volumeInfo.title}
+    //   </>)
+    // );
 
     return (
       <>
@@ -48,8 +50,10 @@ export default class index extends Component {
               onChange={this.handleChange}
             />
         </Form>
-        {books !== [] && <div className='d-flex flex-wrap container'>{renderBooks()}</div>}
+        {/* {books !== [] && <div className='d-flex flex-wrap container'>{renderBooks()}</div>} */}
       </>
     );
   }
 }
+
+export default withRouter(SearchBar);

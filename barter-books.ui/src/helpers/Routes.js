@@ -13,8 +13,8 @@ export default function Routes() {
       <Route exact path='/about' component={() => <AboutView />} />
       <Route
         exact
-        path='/search-results'
-        component={() => <SearchResultsView />}
+        path='/search-results/:term'
+        component={(props) => <SearchResultsView {...props}/>}
       />
       <Route exact path='/user-books' component={() => <UserBooksView />} />
       <Route
