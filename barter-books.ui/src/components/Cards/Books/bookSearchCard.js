@@ -10,7 +10,7 @@ export default function bookSearchCard({ bookData }) {
       <Card>
         <CardBody>
           <CardTitle tag="h5">{bookData.volumeInfo.title}</CardTitle>
-          <CardSubtitle tag="h6" className="mb-2 text-muted">{bookData.volumeInfo.authors}</CardSubtitle>
+          <CardSubtitle tag="h6" className="mb-2 text-muted">{bookData.volumeInfo?.authors.join(', ')}</CardSubtitle>
         </CardBody>
         <img width="100%" src={bookData.volumeInfo.imageLinks?.thumbnail} alt={bookData.volumeInfo.title} />
       </Card>
