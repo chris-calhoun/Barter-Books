@@ -25,9 +25,10 @@ export default function MyNavbar(props) {
         <Link className='navbar-brand' to='/'>
           Barter Books
         </Link>
+        <SearchBar />
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
-          <Nav navbar>
+          <Nav className='mr-auto' navbar>
             <NavItem>
               <Link className="nav-link" to='/'>
                 Home
@@ -39,8 +40,7 @@ export default function MyNavbar(props) {
               </Link>
             </NavItem>
           </Nav>
-          <SearchBar />
-          <Auth user={user} />
+          <Auth className="auth" user={user} />
         </Collapse>
       </Navbar>
     </div>
