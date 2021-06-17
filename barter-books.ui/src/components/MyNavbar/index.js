@@ -39,8 +39,8 @@ export default function MyNavbar(props) {
                 About
               </Link>
             </NavItem>
+            <Auth className="auth" user={user} />
           </Nav>
-          <Auth className="auth" user={user} />
         </Collapse>
       </Navbar>
     </div>
