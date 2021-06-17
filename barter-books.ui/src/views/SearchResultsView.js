@@ -1,53 +1,3 @@
-// import React, { Component } from 'react';
-// import BookData from '../helpers/data/bookData';
-// import BookSearchCard from '../components/Cards/Books/bookSearchCard';
-
-// export default class SearchResultsView extends Component {
-//   state = {
-//     searchText: '',
-//     books: [],
-//   };
-
-//   componentWillMount() {
-//     this.showResults();
-//   }
-
-//   componentDidUpdate(prevState) {
-//     if (prevState.match.params.term !== this.props.match.params.term) {
-//       this.showResults();
-//     }
-//   }
-
-//   componentWillUnmount() {
-//     this.showResults();
-//   }
-
-//   showResults = () => {
-//     const searchText = this.props.match.params.term;
-
-//     BookData.getSearchedBooks(searchText).then((response) => {
-//       this.setState({
-//         books: response,
-//         searchText,
-//       });
-//     });
-//   }
-
-//   render() {
-//     const { books, searchText } = this.state;
-
-//     const renderBooks = () => (
-//       books.map((book) => (book.volumeInfo.imageLinks !== undefined && <BookSearchCard key={book.id} bookData={book} />))
-//     );
-//     return (
-//       <div>
-//         <h1>Search results for</h1>
-//         <h3>{searchText}</h3>
-//         {books !== [] && <div className='d-flex flex-wrap container'>{renderBooks()}</div>}
-//       </div>
-//     );
-//   }
-// }
 import React, { useState, useEffect } from 'react';
 import BookData from '../helpers/data/bookData';
 import BookSearchCard from '../components/Cards/Books/bookSearchCard';
@@ -69,8 +19,10 @@ export default function SearchResultsView(props) {
   return (
     <div>
       <h1>Search results for</h1>
-      <h3>{searchText}</h3>
-      {books !== [] && <div className='d-flex flex-wrap container'>{renderBooks()}</div>}
+      <h5>{searchText}</h5>
+      <div className='search-results-container'>
+        {books !== [] && <div className='search-results-cards'>{renderBooks()}</div>}
+      </div>
     </div>
   );
 }
