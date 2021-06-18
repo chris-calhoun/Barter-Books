@@ -11,7 +11,14 @@ namespace barter_books_api.DataAccess
     public class CollectionRepository
     {
         const string ConnectionString = "Server=localhost;Database=BarterBooks;Trusted_Connection=True";
+        public List<Collection> GetAll()
+        {
+            using var connection = new SqlConnection(ConnectionString);
+            var allCollectionsSql = "SELECT * FROM [Collection]";
+            var collections = connection.Query<Collection>(allCollectionsSql).ToList();
 
+            return (List<Collection>)collections;
+        }
         public Collection GetUserCollection(string userId)
         {
             using var connection = new SqlConnection(ConnectionString);

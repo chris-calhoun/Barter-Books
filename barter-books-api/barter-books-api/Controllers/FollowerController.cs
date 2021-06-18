@@ -20,6 +20,12 @@ namespace barter_books_api.Controllers
             _repo = new FollowerRepository();
         }
 
+        [HttpGet]
+        public IActionResult GetAllFollowers()
+        {
+            return Ok(_repo.GetAll());
+        }
+
         [HttpGet("User/{userId}")]
         public IActionResult GetUserFollowers(string userId)
         {

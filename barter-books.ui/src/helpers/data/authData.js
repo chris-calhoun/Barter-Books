@@ -2,6 +2,7 @@ import firebase from 'firebase/app';
 import 'firebase/auth';
 import axios from 'axios';
 import { baseUrl } from './config.json';
+import CollectionData from './collectionData';
 
 const userDataUrl = `${baseUrl}/Users`;
 
@@ -27,16 +28,18 @@ const loginClickEvent = (e) => {
         Email: user.email,
         imageUrl: cred.user.photoURL,
       };
+
       axios.post(`${userDataUrl}`, userObj);
+      CollectionData.createCollection({ UserId: cred.user.uid, Description: 'test' });
     }
   });
 };
 
 const logoutClickEvent = (e) => {
   e.preventDefault();
-  window.sessionStorage.removeItem('token');
+  // window.sessionStorage.removeItem('token');
   firebase.auth().signOut();
-  window.location.href = '/';
+  // window.location.href = '/';
 };
 
 export default { getUid, loginClickEvent, logoutClickEvent };

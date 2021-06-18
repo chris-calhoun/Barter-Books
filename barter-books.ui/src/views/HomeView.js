@@ -1,25 +1,11 @@
 import React from 'react';
-import Loader from '../components/Loader';
-import RecentlyAddedBooks from '../components/Cards/Books/bookRecentlyAddedCard';
-import LoginView from './LoginView';
+import RecentlyAddedBooks from '../components/Cards/Books/BookRecentlyAddedCard';
 
-export default function HomeView(props) {
-  const loadComponent = () => {
-    let component = '';
-    if (props.user === null) {
-      component = <Loader />;
-    } else if (props.user) {
-      component = <RecentlyAddedBooks />;
-    } else {
-      component = <LoginView />;
-    }
-    return component;
-  };
-
+export default function HomeView() {
   return (
     <div className='home'>
       <h1>Home View</h1>
-      {loadComponent()}
+      <RecentlyAddedBooks />
     </div>
   );
 }

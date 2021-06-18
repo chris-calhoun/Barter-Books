@@ -20,6 +20,12 @@ namespace barter_books_api.Controllers
             _repo = new TradeRepository();
         }
 
+        [HttpGet]
+        public IActionResult GetAllTrades()
+        {
+            return Ok(_repo.GetAll());
+        }
+
         [HttpGet("User/{userId}")]
         public IActionResult GetUserTrades(string userId)
         {

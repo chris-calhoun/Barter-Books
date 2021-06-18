@@ -12,6 +12,15 @@ namespace barter_books_api.DataAccess
     {
         const string ConnectionString = "Server=localhost;Database=BarterBooks;Trusted_Connection=True";
 
+        public List<Trade> GetAll()
+        {
+            using var connection = new SqlConnection(ConnectionString);
+            var allTradesSql = "SELECT * FROM [Trade]";
+            var trades = connection.Query<Trade>(allTradesSql).ToList();
+
+            return (List<Trade>)trades;
+        }
+
         public List<Trade> GetUserTrades(string user_Id)
         {
             using var connection = new SqlConnection(ConnectionString);
