@@ -12,6 +12,7 @@ export default function Routes({ user }) {
     <Switch>
       <Route exact path='/' component={() => <HomeView user={user}/>} />
       <Route exact path='/about' component={() => <AboutView />} />
+      <Route exact path='/my-books' component={() => <UserBooksView />} />
       <Route
         exact
         path='/search-results/:term'

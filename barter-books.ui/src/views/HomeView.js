@@ -1,6 +1,6 @@
 import React from 'react';
 import Loader from '../components/Loader';
-import RecentlyAddedBooks from '../components/Cards/Books/bookRecentlyAddedCard';
+import RecentlyAddedBooks from '../components/Cards/Books/BookRecentlyAddedCard';
 import LoginView from './LoginView';
 
 export default function HomeView(props) {

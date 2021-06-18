@@ -1,10 +1,10 @@
 import React from 'react';
 import {
   Card, CardBody,
-  CardTitle, CardSubtitle,
+  CardTitle, CardSubtitle, Button,
 } from 'reactstrap';
 
-export default function bookSearchCard({ bookData }) {
+export default function BookSearchCard({ bookData }) {
   return (
       <Card>
         <div className='card-img-container'>
@@ -14,6 +14,7 @@ export default function bookSearchCard({ bookData }) {
           <CardTitle className="text-title">{bookData.volumeInfo.title}</CardTitle>
           <CardSubtitle className="mb-2 text-author">{bookData.volumeInfo?.authors.join(', ')}</CardSubtitle>
         </CardBody>
+        <Button outline color="primary">Add Book</Button>{' '}
       </Card>
   );
 }

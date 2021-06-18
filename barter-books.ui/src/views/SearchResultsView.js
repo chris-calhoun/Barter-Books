@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import BookData from '../helpers/data/bookData';
-import BookSearchCard from '../components/Cards/Books/bookSearchCard';
+import BookSearchCard from '../components/Cards/Books/BookSearchCard';
 
 export default function SearchResultsView(props) {
   const [books, setBooks] = useState([]);
@@ -12,8 +12,12 @@ export default function SearchResultsView(props) {
     });
   }, [searchText]);
 
+  const addBook = (bookId) => {
+
+  };
+
   const renderBooks = () => (
-    books.map((book) => (book.volumeInfo.imageLinks !== undefined && <BookSearchCard key={book.id} bookData={book} />))
+    books.map((book) => (book.volumeInfo.imageLinks !== undefined && <BookSearchCard key={book.id} bookData={book} addBook={addBook} />))
   );
 
   return (

@@ -1,5 +1,8 @@
 import axios from 'axios';
 import appApiKey from '../apiKey';
+import { baseUrl } from './config.json';
+
+const booksUrl = `${baseUrl}/Products`;
 
 const getSearchedBooks = (userSearch) => new Promise((resolve, reject) => {
   // remove apiApiKey if quota is hit during testing
@@ -10,6 +13,13 @@ const getSearchedBooks = (userSearch) => new Promise((resolve, reject) => {
     }).catch((error) => reject(error));
 });
 
+const addUserBook = (bookObj) => new Promise((resolve, reject) => {
+  axios.post(`${booksUrl}`, bookObj).then((response) => {
+    resolve(response.data);
+  }).catch((error) => reject(error));
+});
+
 export default {
   getSearchedBooks,
+  addUserBook,
 };

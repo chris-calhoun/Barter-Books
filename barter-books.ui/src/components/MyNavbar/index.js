@@ -35,10 +35,15 @@ export default function MyNavbar(props) {
               </Link>
             </NavItem>
             <NavItem>
+              <Link className="nav-link" to='/my-books'>
+                My Books
+              </Link>
+            </NavItem>
+            {/* <NavItem>
               <Link className="nav-link" to='/about'>
                 About
               </Link>
-            </NavItem>
+            </NavItem> */}
             <Auth className="auth" user={user} />
           </Nav>
         </Collapse>
