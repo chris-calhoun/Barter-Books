@@ -12,8 +12,14 @@ export default function SearchResultsView(props) {
     });
   }, [searchText]);
 
-  const addBook = (bookId) => {
+  const addBook = (book) => {
+    console.warn(book);
+    // const bookObj = {
 
+    // }
+    // BookData.addUserBook(bookObj).then(() => {
+
+    // })
   };
 
   const renderBooks = () => (

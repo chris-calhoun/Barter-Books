@@ -12,6 +12,15 @@ namespace barter_books_api.DataAccess
     {
         const string ConnectionString = "Server=localhost;Database=BarterBooks;Trusted_Connection=True";
 
+        public List<Follower> GetAll()
+        {
+            using var connection = new SqlConnection(ConnectionString);
+            var allFollowersSql = "SELECT * FROM [Follower]";
+            var followers = connection.Query<Follower>(allFollowersSql).ToList();
+
+            return (List<Follower>)followers;
+        }
+
         public List<Follower> GetUserFollowers(string userId)
         {
             using var connection = new SqlConnection(ConnectionString);

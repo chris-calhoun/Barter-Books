@@ -13,6 +13,15 @@ namespace barter_books_api.DataAccess
     {
         const string ConnectionString = "Server=localhost;Database=BarterBooks;Trusted_Connection=True";
 
+        public List<Wishlist> GetAll()
+        {
+            using var connection = new SqlConnection(ConnectionString);
+            var allWishlistsSql = "SELECT * FROM [Wishlist]";
+            var wishlists = connection.Query<Wishlist>(allWishlistsSql).ToList();
+
+            return (List<Wishlist>)wishlists;
+        }
+
         public Wishlist GetUserWishlist(string userId)
         {
             using var connection = new SqlConnection(ConnectionString);

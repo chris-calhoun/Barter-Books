@@ -20,6 +20,12 @@ namespace barter_books_api.Controllers
             _repo = new WishlistRepository();
         }
 
+        [HttpGet]
+        public IActionResult GetAllWishlists()
+        {
+            return Ok(_repo.GetAll());
+        }
+
         [HttpGet("User/{userId}")]
         public IActionResult GetUserWishlist(string userId)
         {
