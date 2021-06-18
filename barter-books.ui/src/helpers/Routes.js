@@ -5,6 +5,7 @@ import HomeView from '../views/HomeView';
 import SearchResultsView from '../views/SearchResultsView';
 import UserBooksView from '../views/UserBooksView';
 import UserTradesView from '../views/UserTradesView';
+import NotFoundView from '../views/NotFoundView';
 
 export default function Routes({ user }) {
   return (
@@ -22,6 +23,7 @@ export default function Routes({ user }) {
         path='/user-trades'
         component={() => <UserTradesView />}
       />
+      <Route component={NotFoundView} />
     </Switch>
   );
 }
