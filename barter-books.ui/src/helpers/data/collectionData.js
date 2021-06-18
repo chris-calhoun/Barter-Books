@@ -3,9 +3,9 @@ import { baseUrl } from './config.json';
 
 const collectionUrl = `${baseUrl}/Collections`;
 
-const getUserCollection = (userId) => new Promise((resolve, reject) => axios.get(`${collectionUrl}/${userId}`)
+const getUserCollection = (userId) => new Promise((resolve, reject) => axios.get(`${collectionUrl}/User/${userId}`)
   .then((response) => {
-    resolve(response.data[0]);
+    resolve(response.data);
   }).catch((error) => reject(error)));
 
 const createCollection = (collectionData) => new Promise((resolve, reject) => {

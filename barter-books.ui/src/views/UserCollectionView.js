@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import CollectionData from '../helpers/data/collectionData';
 
-export default function UserCollectionView(user) {
+export default function UserCollectionView(props) {
   const [userHasACollection, setUserHasACollection] = useState(false);
 
   useEffect(() => {
-    CollectionData.getUserCollection(user.Id).then((response) => {
+    console.warn(props.user.uid);
+    CollectionData.getUserCollection(props.user.uid).then((response) => {
+      console.warn(response);
       if (response) {
         setUserHasACollection(true);
       } else {

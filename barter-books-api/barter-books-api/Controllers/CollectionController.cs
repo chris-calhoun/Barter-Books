@@ -30,6 +30,7 @@ namespace barter_books_api.Controllers
         }
 
         [HttpGet("User/{userId}")]
+        [AllowAnonymous]
         public IActionResult GetUserCollection(string userId)
         {
             var collection = _repo.GetUserCollection(userId);
