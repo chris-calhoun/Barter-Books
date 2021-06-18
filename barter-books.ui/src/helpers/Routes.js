@@ -6,10 +6,10 @@ import SearchResultsView from '../views/SearchResultsView';
 import UserBooksView from '../views/UserBooksView';
 import UserTradesView from '../views/UserTradesView';
 
-export default function Routes() {
+export default function Routes({ user }) {
   return (
     <Switch>
-      <Route exact path='/' component={() => <HomeView />} />
+      <Route exact path='/' component={() => <HomeView user={user}/>} />
       <Route exact path='/about' component={() => <AboutView />} />
       <Route
         exact

@@ -1,6 +1,6 @@
 import axios from 'axios';
 import firebase from 'firebase/app';
-import config from './config.json';
+import config from '../apiKey';
 
 axios.interceptors.request.use(
   (request) => {

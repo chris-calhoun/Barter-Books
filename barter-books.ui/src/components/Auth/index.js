@@ -15,7 +15,7 @@ export default class Auth extends Component {
     return (
       <>
       {/* if not logged in, show login button */}
-        { !user ? <Button color='primary' onClick={(e) => AuthData.loginClickEvent(e)}>Login</Button>
+        { !user ? <Button color='primary' size="lg" onClick={(e) => AuthData.loginClickEvent(e)}>Login</Button>
         // else show user image and dropdown caret with logout button and name
           : <>
               <img className="userInfo" src={user?.photoURL} alt={user?.displayName} />
