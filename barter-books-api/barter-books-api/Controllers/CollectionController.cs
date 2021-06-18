@@ -42,6 +42,7 @@ namespace barter_books_api.Controllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public IActionResult AddCollection(Collection collection)
         {
             _repo.AddCollection(collection);
@@ -50,6 +51,7 @@ namespace barter_books_api.Controllers
 
 
         [HttpPatch]
+        [AllowAnonymous]
         public IActionResult UpdateCollection(Collection collection)
         {
             _repo.UpdateCollection(collection);

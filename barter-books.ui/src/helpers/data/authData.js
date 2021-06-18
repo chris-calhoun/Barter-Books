@@ -2,6 +2,7 @@ import firebase from 'firebase/app';
 import 'firebase/auth';
 import axios from 'axios';
 import { baseUrl } from './config.json';
+import CollectionData from './collectionData';
 
 const userDataUrl = `${baseUrl}/Users`;
 
@@ -29,6 +30,7 @@ const loginClickEvent = (e) => {
       };
 
       axios.post(`${userDataUrl}`, userObj);
+      CollectionData.createCollection({ UserId: cred.user.uid, Description: 'test' });
     }
   });
 };
