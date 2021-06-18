@@ -1,25 +1,34 @@
 import React, { useState, useEffect } from 'react';
 import BookData from '../helpers/data/bookData';
 import BookSearchCard from '../components/Cards/Books/BookSearchCard';
+import CollectionData from '../helpers/data/collectionData';
 
 export default function SearchResultsView(props) {
   const [books, setBooks] = useState([]);
+  const [collection, setCollection] = useState([]);
   const searchText = props.match.params.term;
 
   useEffect(() => {
     BookData.getSearchedBooks(searchText).then((response) => {
       setBooks(response);
     });
-  }, [searchText]);
+    CollectionData.getUserCollection(props.user.uid).then((response) => {
+      setCollection(response);
+    });
+  }, [searchText, props.user.uid]);
 
-  const addBook = (book) => {
-    console.warn(book);
-    // const bookObj = {
+  const addBook = (bookData) => {
+    console.warn(bookData);
+    const bookObj = {
+      CollectionId: collection.id,
+      Name: bookData.volumeInfo.title,
+      Image: bookData.volumeInfo.imageLinks.thumbnail,
+      Author: bookData.volumeInfo.authors.join(', '),
+      PublishDate: bookData.volumeInfo.publishedDate,
+      PageCount: bookData.volumeInfo.pageCount,
+    };
 
-    // }
-    // BookData.addUserBook(bookObj).then(() => {
-
-    // })
+    BookData.addUserBook(bookObj);
   };
 
   const renderBooks = () => (

@@ -2,7 +2,7 @@ import axios from 'axios';
 import appApiKey from '../apiKey';
 import { baseUrl } from './config.json';
 
-const booksUrl = `${baseUrl}/Products`;
+const booksUrl = `${baseUrl}/Books`;
 
 const getSearchedBooks = (userSearch) => new Promise((resolve, reject) => {
   // remove apiApiKey if quota is hit during testing

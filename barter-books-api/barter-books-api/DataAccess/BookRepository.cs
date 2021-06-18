@@ -31,9 +31,9 @@ namespace barter_books_api.DataAccess
         public void AddBook(Book book)
         {
             using var connection = new SqlConnection(ConnectionString);
-            var sql = @$"INSERT INTO Book(CollectionId, Name, Image, Author, PublishDate, Publisher, PageCount, Category, AverageRating)
+            var sql = @$"INSERT INTO Book(CollectionId, Name, Image, Author, PublishDate, PageCount)
                         OUTPUT inserted.Id
-                        VALUES(@CollectionId, @Name, @Image,@Author, @PublishDate, @Publisher, @PageCount, @Category, @AverageRating)";
+                        VALUES(@CollectionId, @Name, @Image, @Author, @PublishDate, @PageCount)";
 
             var id = connection.ExecuteScalar<int>(sql, book);
 

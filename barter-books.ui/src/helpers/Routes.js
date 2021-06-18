@@ -17,7 +17,7 @@ export default function Routes({ user }) {
       <Route
         exact
         path='/search-results/:term'
-        component={(props) => <SearchResultsView {...props} user={user}/>}
+        user={user} component={(props) => <SearchResultsView {...props} user={user}/>}
       />
       <Route
         exact

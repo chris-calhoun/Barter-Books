@@ -14,7 +14,7 @@ export default function BookSearchCard({ bookData, addBook }) {
           <CardTitle className="text-title">{bookData.volumeInfo.title}</CardTitle>
           <CardSubtitle className="mb-2 text-author">{bookData.volumeInfo?.authors.join(', ')}</CardSubtitle>
         </CardBody>
-        <Button onClick={() => addBook(bookData.volumeInfo.title)} outline color="primary">Add Book</Button>{' '}
+        <Button onClick={() => addBook(bookData)} outline color="primary">Add Book</Button>{' '}
       </Card>
   );
 }
