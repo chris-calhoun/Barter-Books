@@ -1,7 +1,6 @@
 import React from 'react';
 
 export default function FollowingCard({ user }) {
-  // console.warn(user);
   return (
     <div className="find-friend-card">
       <div className='friend-img-container'>

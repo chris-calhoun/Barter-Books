@@ -9,23 +9,19 @@ export default function FindFriendsView() {
   const currentUserId = AuthData.getUid();
 
   useEffect(() => {
-    // UserData.getAllUsers().then((response) => {
-    //   setUsers(response.filter((user) => user.id !== AuthData.getUid()));
-    // });
     FollowerData.getPotentialFollowers(currentUserId).then((response) => {
-      console.warn(response);
       setUsers(response);
     });
   }, [currentUserId]);
 
-  const followUser = async (newFriendId) => {
-    // console.warn(newFriendId);
+  const followUser = (newFriendId) => {
     const followerObj = {
       UserId: AuthData.getUid(),
       FollowerId: newFriendId,
     };
-    await FollowerData.addFollower(followerObj);
-    const remainingUsers = users.filter((user) => user.userId !== newFriendId);
+    FollowerData.addFollower(followerObj);
+    const remainingUsers = users.filter((user) => user.id !== newFriendId);
+
     setUsers(remainingUsers);
   };
 
