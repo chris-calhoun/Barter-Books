@@ -53,6 +53,31 @@ namespace barter_books_api.DataAccess
             var books = connection.Query<Book>(sql, new { userId = user_Id }).OrderByDescending(book => book.DateAddedToCollection).ToList();
             return books;
         }
+        public List<RecentlyAddedBooks> GetRecentlyAddedBooks(string user_Id)
+        {
+            using var connection = new SqlConnection(ConnectionString);
+            var sql = @"SELECT
+                            u.Id as UserId,
+                            u.FirstName,
+                            u.LastName,
+                            u.ImageUrl,
+                            b.Id,
+                            b.Name,
+                            b.Image,
+                            b.Author,
+                            b.DateAddedToCollection
+                            FROM [User] as u
+                            LEFT JOIN [Collection] as c
+                            on u.Id = c.UserId
+                            RIGHT JOIN [Book] as b
+                            ON c.Id = b.CollectionId
+                            WHERE u.Id in (Select FollowerId
+			                            FROM Follower
+			                            Where [UserId] = @userId)";
+
+            var books = connection.Query<RecentlyAddedBooks>(sql, new { userId = user_Id }).OrderByDescending(book => book.DateAddedToCollection).ToList();
+            return books;
+        }
         public void DeleteShop(int id)
         {
             using var db = new SqlConnection(ConnectionString);

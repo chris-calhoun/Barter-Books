@@ -42,21 +42,35 @@ namespace barter_books_api.Controllers
             return Ok(booksList);
         }
 
-        //[HttpGet("Collection/{collectionId}")]
-        //[AllowAnonymous]
-        //public IActionResult GetBooksFromCollection(int collectionId)
-        //{
-        //    var booksList = _repo.GetCollectionBooks(collectionId);
+        [HttpGet("RecentlyAdded/{userId}")]
+        [AllowAnonymous]
+        public IActionResult GetRecentlyAddedBooks(string userId)
+        {
+            var booksList = _repo.GetRecentlyAddedBooks(userId);
 
-        //    if (booksList == null)
-        //    {
-        //        return NotFound("This collection does not exist");
-        //    }
+            if (booksList == null)
+            {
+                return NotFound("No books have been added.");
+            }
 
-        //    return Ok(booksList);
-        //}
+            return Ok(booksList);
+        }
 
-        [HttpGet("{id}")]
+            //[HttpGet("Collection/{collectionId}")]
+            //[AllowAnonymous]
+            //public IActionResult GetBooksFromCollection(int collectionId)
+            //{
+            //    var booksList = _repo.GetCollectionBooks(collectionId);
+
+            //    if (booksList == null)
+            //    {
+            //        return NotFound("This collection does not exist");
+            //    }
+
+            //    return Ok(booksList);
+            //}
+
+            [HttpGet("{id}")]
         public IActionResult GetBookById(int id)
         {
             var book = _repo.GetBookById(id);
