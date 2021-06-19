@@ -69,7 +69,7 @@ namespace barter_books_api.Controllers
             var users = _repo.GetFollowing(userId);
             if (users == null)
             {
-                return NotFound("The user does not have any potential followers");
+                return NotFound("The user is not following anyone.");
             }
 
             return Ok(users);
