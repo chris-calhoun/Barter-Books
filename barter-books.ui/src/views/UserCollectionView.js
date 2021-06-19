@@ -18,8 +18,14 @@ export default function UserCollectionView(props) {
     });
   }, [props.user.uid, collectionDescription]);
 
+  const deleteBook = (bookId) => {
+    BookData.deleteBook(bookId);
+    const remainingBooks = collectionBooks.filter((book) => book.id !== bookId);
+    setCollectionBooks(remainingBooks);
+  };
+
   const renderBooks = () => (
-    collectionBooks.map((book) => (<UserBookCard key={book.id} bookData={book} />))
+    collectionBooks.map((book) => (<UserBookCard key={book.id} bookData={book} deleteBook={deleteBook} />))
   );
 
   return (

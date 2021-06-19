@@ -1,10 +1,10 @@
 import React from 'react';
 import {
   Card, CardBody,
-  CardTitle, CardSubtitle,
+  CardTitle, CardSubtitle, Button,
 } from 'reactstrap';
 
-export default function BookSearchCard({ bookData }) {
+export default function BookSearchCard({ bookData, deleteBook }) {
   return (
       <Card>
         <div className='card-img-container'>
@@ -14,7 +14,7 @@ export default function BookSearchCard({ bookData }) {
           <CardTitle className="text-title">{bookData.name}</CardTitle>
           <CardSubtitle className="mb-2 text-author">{bookData.author}</CardSubtitle>
         </CardBody>
-        {/* <Button onClick={() => addBook(bookData)} outline color="primary">Add Book</Button>{' '} */}
+        <Button onClick={() => deleteBook(bookData.id)} outline color="primary">Delete Book</Button>{' '}
       </Card>
   );
 }
