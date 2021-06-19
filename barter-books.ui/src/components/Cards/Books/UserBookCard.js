@@ -8,7 +8,7 @@ export default function BookSearchCard({ bookData }) {
   return (
       <Card>
         <div className='card-img-container'>
-          <img className="book-image" width="100%" src={bookData.image} alt={bookData.name} />
+          <img width="100%" src={bookData.image} alt={bookData.name} />
         </div>
         <CardBody className='card-content'>
           <CardTitle className="text-title">{bookData.name}</CardTitle>

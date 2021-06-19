@@ -1,12 +1,11 @@
-.search-results-container {
+.my-books-container {
   display: grid;
   grid-template-columns: 1fr repeat(12, minmax(auto, 60px)) 1fr;
   grid-gap: 40px;
   padding: 60px 0;
 }
 
-
-.search-results-cards {
+.my-books-cards {
   grid-column: 2 / span 12;
   display: grid;
   grid-template-columns: repeat(12, minmax(auto, 60px));
@@ -69,9 +68,8 @@
   }
 }
 
-  
 @media only screen and (max-width: 700px) {
-  .search-results-container {
+  .my-books-container {
     grid-gap: 20px;
   }
   .card {
@@ -87,11 +85,11 @@
 }
 
 @media only screen and (max-width: 500px) {
-  .search-results-container {
+  .my-books-container {
     grid-template-columns: repeat(10, minmax(6, 1fr) 10px);
     grid-gap: 10px;
   }
-  .search-results-cards {
+  .my-books-cards {
     grid-column: 2 / span 6;
     grid-template-columns: repeat(6, 1fr);
     grid-gap: 20px;
