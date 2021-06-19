@@ -22,7 +22,7 @@ const addUserBook = (bookObj) => new Promise((resolve, reject) => {
 const getBooksFromCollection = (userId) => new Promise((resolve, reject) => {
   axios.get(`${booksUrl}/Collection/${userId}`)
     .then((response) => {
-      resolve(Object.values(response.data.items));
+      resolve(Object.values(response.data));
     }).catch((error) => reject(error));
 });
 
