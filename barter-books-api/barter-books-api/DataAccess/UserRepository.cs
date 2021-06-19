@@ -91,7 +91,7 @@ namespace barter_books_api.DataAccess
                         FROM [User]
                         WHERE Id in (Select FollowerId
 			                        FROM Follower
-			                        Where [UserId] = @userId)";
+			                        Where [FollowerId] = @userId)";
 
             var users = connection.Query<User>(sql, new { userId = user_Id }).ToList();
             return users;
@@ -105,7 +105,7 @@ namespace barter_books_api.DataAccess
                         FROM [User]
                         WHERE Id in (Select FollowerId
 			                        FROM Follower
-			                        Where [FollowerId] = @userId)";
+			                        Where [UserId] = @userId)";
 
             var users = connection.Query<User>(sql, new { userId = user_Id }).ToList();
             return users;
