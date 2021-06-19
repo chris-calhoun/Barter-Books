@@ -39,6 +39,11 @@ export default function MyNavbar(props) {
                 My Books
               </Link>
             </NavItem>
+            <NavItem>
+              <Link className="nav-link" to='/friends'>
+                Friends
+              </Link>
+            </NavItem>
             {/* <NavItem>
               <Link className="nav-link" to='/about'>
                 About
