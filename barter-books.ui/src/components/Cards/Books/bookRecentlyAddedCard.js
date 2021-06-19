@@ -1,15 +1,21 @@
 import React from 'react';
+import {
+  Card, CardBody,
+  CardTitle, CardSubtitle,
+} from 'reactstrap';
 
 export default function BookRecentlyAddedCard({ bookData }) {
   return (
-    <div>
+    <Card>
         <div className='card-img-container'>
           <img width="100%" src={bookData.image} alt={bookData.name} />
         </div>
-      <p>Title: {bookData.name}</p>
-      <p>Author: {bookData.name}</p>
-      <p>Added by: {bookData.firstName} {bookData.lastName}</p>
-      <p>Data added: {bookData.dateAddedToCollection}</p>
-    </div>
+        <CardBody className='card-content'>
+          <CardTitle className="text-title">{bookData.name}</CardTitle>
+          <CardSubtitle className="mb-2 text-author">{bookData.author}</CardSubtitle>
+          <CardSubtitle className="mb-2 text-author">Added by: {bookData.firstName} {bookData.lastName}</CardSubtitle>
+          <CardSubtitle className="mb-2 text-author">Data added: {bookData.dateAddedToCollection}</CardSubtitle>
+        </CardBody>
+    </Card>
   );
 }
