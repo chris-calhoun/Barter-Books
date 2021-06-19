@@ -20,6 +20,8 @@ export default function UserCollectionView(props) {
 
   const deleteBook = (bookId) => {
     BookData.deleteBook(bookId);
+    const remainingBooks = collectionBooks.filter((book) => book.id !== bookId);
+    setCollectionBooks(remainingBooks);
   };
 
   const renderBooks = () => (
