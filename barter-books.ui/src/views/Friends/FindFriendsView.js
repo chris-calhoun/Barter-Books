@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import UserData from '../../helpers/data/userData';
 import AuthData from '../../helpers/data/authData';
 import FindFriendsCard from '../../components/Cards/Friends/FindFriendsCard';
+import FollowerData from '../../helpers/data/followerData';
 
 export default function FindFriendsView() {
   const [users, setUsers] = useState();
@@ -14,6 +15,11 @@ export default function FindFriendsView() {
 
   const followUser = (newFriendId) => {
     console.warn(newFriendId);
+    const followerObj = {
+      UserId: AuthData.getUid(),
+      FollowerId: newFriendId,
+    };
+    FollowerData.addFollower(followerObj);
   };
 
   const renderUsers = () => (users?.map((user) => <FindFriendsCard key={user.id} user={user} followUser={followUser}/>));
