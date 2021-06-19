@@ -40,13 +40,17 @@ namespace barter_books_api.DataAccess
             book.Id = id;
         }
 
-        public List<Book> GetCollectionBooks(int collection_Id)
+        public List<Book> GetCollectionBooks(string user_Id)
         {
             using var connection = new SqlConnection(ConnectionString);
-            var sql = @"SELECT * 
-                        FROM Book
-                        WHERE CollectionId = @collectionId";
-            var books = connection.Query<Book>(sql, new { collectionId = collection_Id }).OrderByDescending(book => book.DateAddedToCollection).ToList();
+            var sql = @"SELECT b.*
+                        FROM [User] as u
+                        INNER JOIN [Collection] as c
+                        ON u.Id = c.UserId
+                        INNER JOIN Book as b
+                        ON c.Id = b.CollectionId
+                        WHERE u.Id = @userId";
+            var books = connection.Query<Book>(sql, new { userId = user_Id }).OrderByDescending(book => book.DateAddedToCollection).ToList();
             return books;
         }
     }

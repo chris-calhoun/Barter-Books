@@ -19,7 +19,15 @@ const addUserBook = (bookObj) => new Promise((resolve, reject) => {
   }).catch((error) => reject(error));
 });
 
+const getBooksFromCollection = (userId) => new Promise((resolve, reject) => {
+  axios.get(`${booksUrl}/Collection/${userId}`)
+    .then((response) => {
+      resolve(Object.values(response.data.items));
+    }).catch((error) => reject(error));
+});
+
 export default {
   getSearchedBooks,
   addUserBook,
+  getBooksFromCollection,
 };

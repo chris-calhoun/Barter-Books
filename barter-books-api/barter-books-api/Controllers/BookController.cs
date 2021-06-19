@@ -28,11 +28,11 @@ namespace barter_books_api.Controllers
             return Ok(_repo.GetAll());
         }
 
-        [HttpGet("Collection/{collectionId}")]
+        [HttpGet("Collection/{userId}")]
         [AllowAnonymous]
-        public IActionResult GetBooksFromCollection(int collectionId)
+        public IActionResult GetBooksFromCollection(string userId)
         {
-            var booksList = _repo.GetCollectionBooks(collectionId);
+            var booksList = _repo.GetCollectionBooks(userId);
 
             if (booksList == null)
             {
@@ -42,6 +42,19 @@ namespace barter_books_api.Controllers
             return Ok(booksList);
         }
 
+        //[HttpGet("Collection/{collectionId}")]
+        //[AllowAnonymous]
+        //public IActionResult GetBooksFromCollection(int collectionId)
+        //{
+        //    var booksList = _repo.GetCollectionBooks(collectionId);
+
+        //    if (booksList == null)
+        //    {
+        //        return NotFound("This collection does not exist");
+        //    }
+
+        //    return Ok(booksList);
+        //}
 
         [HttpGet("{id}")]
         public IActionResult GetBookById(int id)

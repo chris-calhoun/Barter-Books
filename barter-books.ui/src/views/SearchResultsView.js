@@ -18,7 +18,6 @@ export default function SearchResultsView(props) {
   }, [searchText, props.user.uid]);
 
   const addBook = (bookData) => {
-    console.warn(bookData);
     const bookObj = {
       CollectionId: collection.id,
       Name: bookData.volumeInfo.title,
