@@ -12,7 +12,11 @@ export default function FindFriendsView() {
     });
   }, []);
 
-  const renderUsers = () => (users?.map((user) => <FindFriendsCard key={user.id} user={user}/>));
+  const followUser = (newFriendId) => {
+    console.warn(newFriendId);
+  };
+
+  const renderUsers = () => (users?.map((user) => <FindFriendsCard key={user.id} user={user} followUser={followUser}/>));
 
   return (
     <div className="find-friend-container">
