@@ -24,7 +24,7 @@ export default function FindFriendsView() {
       FollowerId: newFriendId,
     };
     FollowerData.addFollower(followerObj);
-    console.warn(users, 'all users');
+    // console.warn(users, 'all users');
 
     const remainingUsers = users.filter((user) => user.id !== newFriendId);
 

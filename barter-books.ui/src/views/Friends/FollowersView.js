@@ -9,7 +9,7 @@ export default function FollowersView() {
 
   useEffect(() => {
     FollowerData.getUserFollowers(currentUserId).then((response) => {
-      console.warn(response);
+      // console.warn(response);
       setUsers(response);
     });
   }, [currentUserId]);

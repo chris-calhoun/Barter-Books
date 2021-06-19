@@ -9,7 +9,7 @@ export default function FollowingView() {
 
   useEffect(() => {
     FollowerData.getUserFollowing(currentUserId).then((response) => {
-      console.warn(response);
+      // console.warn(response);
       setUsers(response);
     });
   }, [currentUserId]);
