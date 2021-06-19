@@ -26,8 +26,15 @@ const getBooksFromCollection = (userId) => new Promise((resolve, reject) => {
     }).catch((error) => reject(error));
 });
 
+const deleteBook = (bookId) => new Promise((resolve, reject) => {
+  axios.delete(`${booksUrl}/${bookId}`).then((response) => {
+    resolve(response.data);
+  }).catch((error) => reject(error));
+});
+
 export default {
   getSearchedBooks,
   addUserBook,
   getBooksFromCollection,
+  deleteBook,
 };

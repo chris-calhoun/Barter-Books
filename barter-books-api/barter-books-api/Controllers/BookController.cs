@@ -75,5 +75,13 @@ namespace barter_books_api.Controllers
             _repo.AddBook(book);
             return Created($"api/Books/{book.Id}", book);
         }
+
+        [HttpDelete("{id}")]
+        [AllowAnonymous]
+        public IActionResult DeleteBook(int id)
+        {
+            _repo.DeleteShop(id);
+            return Ok();
+        }
     }
 }

@@ -53,5 +53,11 @@ namespace barter_books_api.DataAccess
             var books = connection.Query<Book>(sql, new { userId = user_Id }).OrderByDescending(book => book.DateAddedToCollection).ToList();
             return books;
         }
+        public void DeleteShop(int id)
+        {
+            using var db = new SqlConnection(ConnectionString);
+            var sql = "DELETE FROM Book WHERE Id = @id";
+            db.Execute(sql, new { id = id });
+        }
     }
 }
