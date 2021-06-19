@@ -18,7 +18,7 @@ export default function FollowersView() {
 
   return (
     <div className="find-friend-container">
-      <h2>Find Friends</h2>
+      <h2>Followers</h2>
       {users !== [] && <div className="find-friend-cards">{renderFollowers()}</div>}
     </div>
   );

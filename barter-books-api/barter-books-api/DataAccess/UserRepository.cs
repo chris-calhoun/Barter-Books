@@ -97,5 +97,19 @@ namespace barter_books_api.DataAccess
             return users;
         }
 
+        public List<User> GetFollowing(string user_Id)
+        {
+            using var connection = new SqlConnection(ConnectionString);
+
+            var sql = @"SELECT *
+                        FROM [User]
+                        WHERE Id in (Select FollowerId
+			                        FROM Follower
+			                        Where [FollowerId] = @userId)";
+
+            var users = connection.Query<User>(sql, new { userId = user_Id }).ToList();
+            return users;
+        }
+
     }
 }

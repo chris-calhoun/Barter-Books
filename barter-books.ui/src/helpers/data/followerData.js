@@ -23,8 +23,16 @@ const getUserFollowers = (userId) => new Promise((resolve, reject) => {
     }).catch((error) => reject(error));
 });
 
+const getUserFollowing = (userId) => new Promise((resolve, reject) => {
+  axios.get(`${baseUrl}/Users/Following/${userId}`)
+    .then((response) => {
+      resolve(Object.values(response.data));
+    }).catch((error) => reject(error));
+});
+
 export default {
   addFollower,
   getPotentialFollowers,
   getUserFollowers,
+  getUserFollowing,
 };
