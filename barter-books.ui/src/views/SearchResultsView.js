@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import BookData from '../helpers/data/bookData';
-import BookSearchCard from '../components/Cards/Books/BookSearchCard';
+import BookSearchCard from '../components/Cards/Books/bookSearchCard';
 import CollectionData from '../helpers/data/collectionData';
 
 export default function SearchResultsView(props) {
