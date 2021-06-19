@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import {
   Button,
 } from 'reactstrap';
+import FindFriendsView from './Friends/FindFriendsView';
+import FollowersView from './Friends/FollowersView';
+import FollowingView from './Friends/FollowingView';
 
 export default function FriendsView(props) {
   const [view, setView] = useState('find-friends-btn');
@@ -9,22 +12,13 @@ export default function FriendsView(props) {
   let component = '';
   switch (view) {
     case 'find-friends-btn':
-      component = (
-      <>
-        <h2>find friends</h2>
-      </>);
+      component = (<FindFriendsView />);
       break;
     case 'followers-btn':
-      component = (
-      <>
-        <h2>followers</h2>
-      </>);
+      component = (<FollowersView />);
       break;
     case 'following-btn':
-      component = (
-      <>
-        <h2>find friends</h2>
-      </>);
+      component = (<FollowingView />);
       break;
     default:
       console.warn('view not found.');
@@ -44,7 +38,6 @@ export default function FriendsView(props) {
         </div>
       </div>
       <div className="user-cards">
-        <h2>user cards will go here</h2>
         {component}
       </div>
     </div>
