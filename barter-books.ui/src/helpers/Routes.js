@@ -8,6 +8,7 @@ import UserTradesView from '../views/UserTradesView';
 import NotFoundView from '../views/NotFoundView';
 import LoginView from '../views/LoginView';
 import FriendsView from '../views/FriendsView';
+import FriendsBookCollectionView from '../views/FriendsBookCollectionView';
 
 export default function Routes({ user }) {
   return (
@@ -15,6 +16,11 @@ export default function Routes({ user }) {
       <Route exact path='/' user={user} component={() => <HomeView user={user}/>} />
       <Route exact path='/about' component={() => <AboutView />} />
       <PrivateRoute exact path='/my-books' component={UserCollectionView} userId={user.uid} user={user}/>
+      <Route
+        exact
+        path='/friends-books/:id'
+        component={(props) => <FriendsBookCollectionView {...props} user={user}/>}
+      />
       <PrivateRoute exact path='/friends' component={FriendsView} userId={user.uid} user={user}/>
       <Route
         exact

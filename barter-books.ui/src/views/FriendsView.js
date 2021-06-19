@@ -6,7 +6,7 @@ import FindFriendsView from './Friends/FindFriendsView';
 import FollowersView from './Friends/FollowersView';
 import FollowingView from './Friends/FollowingView';
 
-export default function FriendsView() {
+export default function FriendsView(props) {
   const [view, setView] = useState('find-friends-btn');
 
   let component = '';
@@ -18,7 +18,7 @@ export default function FriendsView() {
       component = (<FollowersView />);
       break;
     case 'following-btn':
-      component = (<FollowingView />);
+      component = (<FollowingView props={props} />);
       break;
     default:
       console.warn('view not found.');

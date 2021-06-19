@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import AuthData from '../../helpers/data/authData';
-import FollowerCard from '../../components/Cards/Friends/FollowerCard';
+import FollowingCard from '../../components/Cards/Friends/FollowingCard';
 import FollowerData from '../../helpers/data/followerData';
 
-export default function FollowingView() {
+export default function FollowingView({ props }) {
   const [users, setUsers] = useState();
   const currentUserId = AuthData.getUid();
 
@@ -13,7 +13,13 @@ export default function FollowingView() {
     });
   }, [currentUserId]);
 
-  const renderFollowing = () => (users?.map((user) => <FollowerCard key={user.id} user={user}/>));
+  const navigateToFriendsBooks = (userId) => {
+    props.history.push({
+      pathname: `/friends-books/${userId}`,
+    });
+  };
+
+  const renderFollowing = () => (users?.map((user) => <FollowingCard key={user.id} user={user} viewBooks={navigateToFriendsBooks}/>));
 
   return (
     <div className="find-friend-container">
