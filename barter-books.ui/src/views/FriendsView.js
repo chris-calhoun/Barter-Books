@@ -6,7 +6,7 @@ import FindFriendsView from './Friends/FindFriendsView';
 import FollowersView from './Friends/FollowersView';
 import FollowingView from './Friends/FollowingView';
 
-export default function FriendsView(props) {
+export default function FriendsView() {
   const [view, setView] = useState('find-friends-btn');
 
   let component = '';

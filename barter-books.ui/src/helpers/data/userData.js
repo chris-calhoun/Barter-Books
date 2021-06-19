@@ -9,4 +9,13 @@ const getSingleUser = (id) => new Promise((resolve, reject) => {
   }).catch((error) => reject(error));
 });
 
-export default { getSingleUser };
+const getAllUsers = () => new Promise((resolve, reject) => {
+  axios.get(userDataUrl).then((response) => {
+    resolve(response.data);
+  }).catch((error) => reject(error));
+});
+
+export default {
+  getSingleUser,
+  getAllUsers,
+};
