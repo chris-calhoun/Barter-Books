@@ -18,14 +18,16 @@ export default function FindFriendsView() {
     });
   }, [currentUserId]);
 
-  const followUser = async (newFriendId) => {
-    // console.warn(newFriendId);
+  const followUser = (newFriendId) => {
     const followerObj = {
       UserId: AuthData.getUid(),
       FollowerId: newFriendId,
     };
-    await FollowerData.addFollower(followerObj);
-    const remainingUsers = users.filter((user) => user.userId !== newFriendId);
+    FollowerData.addFollower(followerObj);
+    console.warn(users, 'all users');
+
+    const remainingUsers = users.filter((user) => user.id !== newFriendId);
+
     setUsers(remainingUsers);
   };
 

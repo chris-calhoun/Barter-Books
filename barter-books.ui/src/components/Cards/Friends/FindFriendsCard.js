@@ -11,7 +11,7 @@ export default function FindFriendsCard({ user, followUser }) {
         <img width="100%" src={user.imageUrl} alt={user.firstName} />
       </div>
       <p>{user.firstName} {user.lastName}</p>
-      <Button id={user.id} onClick={(e) => followUser(user.id)} outline color="secondary">Follow</Button>
+      <Button id={user.id} onClick={() => followUser(user.id)} outline color="secondary">Follow</Button>
     </div>
   );
 }
