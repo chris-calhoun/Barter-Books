@@ -89,7 +89,7 @@ namespace barter_books_api.DataAccess
 
             var sql = @"SELECT *
                         FROM [User]
-                        WHERE Id in (Select FollowerId
+                        WHERE Id in (Select UserId
 			                        FROM Follower
 			                        Where [FollowerId] = @userId)";
 

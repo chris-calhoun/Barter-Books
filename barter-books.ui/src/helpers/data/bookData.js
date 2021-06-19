@@ -32,9 +32,17 @@ const deleteBook = (bookId) => new Promise((resolve, reject) => {
   }).catch((error) => reject(error));
 });
 
+const getRecentlyAddedBooks = (userId) => new Promise((resolve, reject) => {
+  axios.get(`${booksUrl}/RecentlyAdded/${userId}`)
+    .then((response) => {
+      resolve(Object.values(response.data));
+    }).catch((error) => reject(error));
+});
+
 export default {
   getSearchedBooks,
   addUserBook,
   getBooksFromCollection,
   deleteBook,
+  getRecentlyAddedBooks,
 };

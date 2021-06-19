@@ -12,7 +12,7 @@ import FriendsView from '../views/FriendsView';
 export default function Routes({ user }) {
   return (
     <Switch>
-      <Route exact path='/' component={() => <HomeView user={user}/>} />
+      <Route exact path='/' user={user} component={() => <HomeView user={user}/>} />
       <Route exact path='/about' component={() => <AboutView />} />
       <PrivateRoute exact path='/my-books' component={UserCollectionView} userId={user.uid} user={user}/>
       <PrivateRoute exact path='/friends' component={FriendsView} userId={user.uid} user={user}/>
