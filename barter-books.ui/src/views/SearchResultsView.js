@@ -10,6 +10,7 @@ export default function SearchResultsView(props) {
 
   useEffect(() => {
     BookData.getSearchedBooks(searchText).then((response) => {
+      console.warn(response);
       setBooks(response);
     });
     CollectionData.getUserCollection(props.user.uid).then((response) => {
@@ -18,7 +19,6 @@ export default function SearchResultsView(props) {
   }, [searchText, props.user.uid]);
 
   const addBook = (bookData) => {
-    console.warn(bookData);
     const bookObj = {
       CollectionId: collection.id,
       Name: bookData.volumeInfo.title,
@@ -27,7 +27,7 @@ export default function SearchResultsView(props) {
       PublishDate: bookData.volumeInfo.publishedDate,
       PageCount: bookData.volumeInfo.pageCount,
     };
-
+    console.warn(bookObj);
     BookData.addUserBook(bookObj);
   };
 

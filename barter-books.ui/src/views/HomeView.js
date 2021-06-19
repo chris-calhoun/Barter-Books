@@ -1,5 +1,5 @@
 import React from 'react';
-import RecentlyAddedBooks from '../components/Cards/Books/BookRecentlyAddedCard';
+import RecentlyAddedBooks from '../components/Cards/Books/bookRecentlyAddedCard';
 
 export default function HomeView() {
   return (

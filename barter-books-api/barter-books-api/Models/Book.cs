@@ -12,7 +12,7 @@ namespace barter_books_api.Models
         public string Name { get; set; }
         public string Image { get; set; }
         public string Author { get; set; }
-        public DateTime PublishDate { get; set; }
+        public string PublishDate { get; set; }
         public int PageCount { get; set; }
         public DateTime DateAddedToCollection { get; set; }
     }
