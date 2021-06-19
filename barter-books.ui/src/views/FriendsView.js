@@ -37,9 +37,7 @@ export default function FriendsView() {
           <Button id="following-btn" onClick={(e) => setView(e.target.id)} outline color="primary">following</Button>
         </div>
       </div>
-      <div className="user-cards">
         {component}
-      </div>
     </div>
   );
 }
