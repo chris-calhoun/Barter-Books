@@ -9,11 +9,7 @@ export default function FindFriendsView() {
   const currentUserId = AuthData.getUid();
 
   useEffect(() => {
-    // UserData.getAllUsers().then((response) => {
-    //   setUsers(response.filter((user) => user.id !== AuthData.getUid()));
-    // });
     FollowerData.getPotentialFollowers(currentUserId).then((response) => {
-      console.warn(response);
       setUsers(response);
     });
   }, [currentUserId]);
@@ -24,8 +20,6 @@ export default function FindFriendsView() {
       FollowerId: newFriendId,
     };
     FollowerData.addFollower(followerObj);
-    // console.warn(users, 'all users');
-
     const remainingUsers = users.filter((user) => user.id !== newFriendId);
 
     setUsers(remainingUsers);

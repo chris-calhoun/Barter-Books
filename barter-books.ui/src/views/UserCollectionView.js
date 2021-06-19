@@ -8,12 +8,10 @@ export default function UserCollectionView(props) {
   const [collectionBooks, setCollectionBooks] = useState([]);
 
   useEffect(() => {
-    // console.warn(props.user.uid);
     CollectionData.getUserCollection(props.user.uid).then((response) => {
       setCollectionDescription(response.description);
     });
     BookData.getBooksFromCollection(props.user.uid).then((response) => {
-      // console.warn(response);
       setCollectionBooks(response);
     });
   }, [props.user.uid, collectionDescription]);

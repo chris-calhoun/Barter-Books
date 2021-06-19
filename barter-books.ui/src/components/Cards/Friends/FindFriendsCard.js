@@ -4,7 +4,6 @@ import {
 } from 'reactstrap';
 
 export default function FindFriendsCard({ user, followUser }) {
-  // console.warn(user);
   return (
     <div className="find-friend-card">
       <div className='friend-img-container'>
