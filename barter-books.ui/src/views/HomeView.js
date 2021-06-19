@@ -17,7 +17,7 @@ export default function HomeView(props) {
 
   return (
     <div className='home'>
-      <h1>Home View</h1>
+      <h1>Timeline</h1>
       <div className='added-books-container'>
         {addedBooks !== []
         && <div className='added-books-cards'>{renderBooks()}</div>}
