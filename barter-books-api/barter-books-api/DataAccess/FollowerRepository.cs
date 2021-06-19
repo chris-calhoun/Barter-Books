@@ -30,6 +30,20 @@ namespace barter_books_api.DataAccess
             return followers;
         }
 
+        //public List<Follower> GetPotentialFollowers(string user_Id)
+        //{
+        //    using var connection = new SqlConnection(ConnectionString);
+        //    var sql = @"SELECT *
+        //                FROM [User]
+        //                WHERE Id != @userId
+        //                AND Id not in (Select FollowerId
+			     //                   FROM Follower
+			     //                   Where [UserId] = @userId)";
+
+        //    var followers = connection.Query<Follower>(sql, new { userId = user_Id }).ToList();
+        //    return followers;
+        //}
+
         public void AddFollower(Follower follower)
         {
             using var connection = new SqlConnection(ConnectionString);

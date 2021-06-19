@@ -39,6 +39,7 @@ namespace barter_books_api.DataAccess
 
             user.Id = id;
         }
+
         public void UpdateUser(User user)
         {
             using var connection = new SqlConnection(ConnectionString);
@@ -68,5 +69,33 @@ namespace barter_books_api.DataAccess
 
             connection.Execute(userSql, user);
         }
+        public List<User> GetPotentialFollowers(string user_Id)
+        {
+            using var connection = new SqlConnection(ConnectionString);
+            var sql = @"SELECT *
+                        FROM [User]
+                        WHERE Id != @userId
+                        AND Id not in (Select FollowerId
+			                        FROM Follower
+			                        Where [UserId] = @userId)";
+
+            var users = connection.Query<User>(sql, new { userId = user_Id }).ToList();
+            return users;
+        }
+
+        public List<User> GetFollowers(string user_Id)
+        {
+            using var connection = new SqlConnection(ConnectionString);
+
+            var sql = @"SELECT *
+                        FROM [User]
+                        WHERE Id in (Select FollowerId
+			                        FROM Follower
+			                        Where [UserId] = @userId)";
+
+            var users = connection.Query<User>(sql, new { userId = user_Id }).ToList();
+            return users;
+        }
+
     }
 }

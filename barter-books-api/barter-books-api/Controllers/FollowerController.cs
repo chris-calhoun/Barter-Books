@@ -26,6 +26,18 @@ namespace barter_books_api.Controllers
             return Ok(_repo.GetAll());
         }
 
+        //[HttpGet("Potential/{userId}")]
+        //public IActionResult GetPotentialFollowers(string userId)
+        //{
+        //    var followers = _repo.GetPotentialFollowers(userId);
+        //    if (followers == null)
+        //    {
+        //        return NotFound("The user does not have any potential followers");
+        //    }
+
+        //    return Ok(followers);
+        //}
+
         [HttpGet("User/{userId}")]
         public IActionResult GetUserFollowers(string userId)
         {
