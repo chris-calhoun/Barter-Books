@@ -13,7 +13,7 @@ export default function UserCollectionView(props) {
       setCollectionDescription(response.description);
     });
     BookData.getBooksFromCollection(props.user.uid).then((response) => {
-      console.warn(response);
+      // console.warn(response);
       setCollectionBooks(response);
     });
   }, [props.user.uid, collectionDescription]);
