@@ -25,10 +25,10 @@ export default function MyNavbar(props) {
         <Link className='navbar-brand' to='/'>
           Barter Books
         </Link>
-        <SearchBar />
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className='mr-auto' navbar>
+            <SearchBar />
             <NavItem>
               <Link className="nav-link" to='/'>
                 Home
